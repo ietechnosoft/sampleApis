@@ -14,7 +14,32 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+    /**
+     * @OA\Info(title="Product", version="0.1")
+     */
 
+    /**
+     * @OA\Get(
+     *     path="/api/products",
+     *     @OA\Response(response="200", description="All Product List")
+     * )
+     */
+
+    /**
+     * @OA\Get(
+     *     path="/api/products/{product}",
+     *     @OA\Response(response="200", description="Single Product"),
+     *     @OA\Parameter(
+     *         name="product",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *        )
+     *     )
+     * )
+     */
     public function __construct()
     {
         $this->middleware('auth:api')->except('index', 'show');
@@ -46,6 +71,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(ProductRequest $request)
     {
         $product = new Product;

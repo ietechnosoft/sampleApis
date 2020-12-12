@@ -1,0 +1,42 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Product",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "All Product List"
+                    }
+                }
+            }
+        },
+        "/api/products/{product}": {
+            "get": {
+                "operationId": "App\\Http\\Controllers\\ProductController::__construct",
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Single Product"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
